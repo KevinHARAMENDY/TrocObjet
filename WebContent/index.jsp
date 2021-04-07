@@ -6,9 +6,9 @@
 	
 	<br><br><br>
 	
-	<div>Filtres : <input type="text"></div><br>
+	<div class="container-fluid">Filtres : <input type="text"></div><br>
 	
-	<div>Catégorie : 
+	<div class="container-fluid">Catégorie : 
 	  <select name="categorie">
 	  	<option>Informatique</option>
 	  	<option>Ameublement</option>
