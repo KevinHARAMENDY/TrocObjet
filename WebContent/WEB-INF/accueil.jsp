@@ -1,6 +1,14 @@
-<%@ include file="WEB-INF/includes/entete.jsp" %>	
+<%@ include file="includes/entete.jsp" %>	
 	<span>ENI-Enchères</span>
-	<a style="float:right" href="http://localhost:8080/TrocObjet/PageConnexion">S'inscrire - Se connecter</a>
+	
+	<C:choose>
+		<C:when test="${empty sessionScope.User}">
+			<a style="float:right" href="http://localhost:8080/TrocObjet/PageConnexion">S'inscrire - Se connecter</a>
+		</C:when>
+		<C:otherwise>
+			<span style="float:right">Enchères Vendre un article Mon profil Déconnexion</span>
+		</C:otherwise>
+	</C:choose>
 	
 	<div style="text-align:center;color:red;font-weight:bold">Liste des enchères</div>
 	
