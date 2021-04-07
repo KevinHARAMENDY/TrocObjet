@@ -35,6 +35,11 @@ public class Utilisateurs implements Serializable {
 		this.credit = credit;
 		this.admin = admin;
 	}
+	
+	public Utilisateurs(String pseudo, String mdp) {
+		this.pseudo = pseudo;
+		this.mdp = mdp;
+	}
 
 	public int getNoUtilisateur() {
 		return noUtilisateur;
