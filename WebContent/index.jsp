@@ -1,6 +1,6 @@
 <%@ include file="WEB-INF/includes/entete.jsp" %>	
 	<span>ENI-Enchères</span>
-	<span style="float:right">S'inscrire - Se connecter</span>
+	<a style="float:right" href="http://localhost:8080/TrocObjet/PageConnexion">S'inscrire - Se connecter</a>
 	
 	<div style="text-align:center;color:red;font-weight:bold">Liste des enchères</div>
 	
