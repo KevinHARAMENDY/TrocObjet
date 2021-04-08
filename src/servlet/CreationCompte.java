@@ -19,12 +19,12 @@ public class CreationCompte extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameter("nom") != null || request.getParameter("pseudo") != null ||
-		  request.getParameter("prenom") != null || request.getParameter("email") != null ||
-		  request.getParameter("tel") != null || request.getParameter("rue") != null ||
-		  request.getParameter("cp") != null || request.getParameter("ville") != null ||
-		  request.getParameter("mdp") != null || request.getParameter("confirmation") != null &&
-		  request.getParameter("mdp") == request.getParameter("confirmation")) {
+		if ((request.getParameter("nom") != "" || request.getParameter("pseudo") != "" ||
+		  request.getParameter("prenom") != "" || request.getParameter("email") != "" ||
+		  request.getParameter("tel") != "" || request.getParameter("rue") != "" ||
+		  request.getParameter("cp") != "" || request.getParameter("ville") != "" ||
+		  request.getParameter("mdp") != "" || request.getParameter("confirmation") != "") &&
+		  (request.getParameter("mdp").equals(request.getParameter("confirmation")))) {
 			Utilisateurs user = new Utilisateurs(request.getParameter("pseudo"), request.getParameter("nom"),
 				request.getParameter("prenom"), request.getParameter("email"), request.getParameter("tel"),
 				request.getParameter("rue"), request.getParameter("cp"), request.getParameter("ville"),
