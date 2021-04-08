@@ -36,6 +36,20 @@ public class Utilisateurs implements Serializable {
 		this.admin = admin;
 	}
 	
+	public Utilisateurs(String pseudo, String nom, String prenom, String email, String tel,
+			String rue, String code_postal, String ville, String mdp) {
+		super();
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.tel = tel;
+		this.rue = rue;
+		this.code_postal = code_postal;
+		this.ville = ville;
+		this.mdp = mdp;
+	}
+	
 	public Utilisateurs(String pseudo, String mdp) {
 		this.pseudo = pseudo;
 		this.mdp = mdp;

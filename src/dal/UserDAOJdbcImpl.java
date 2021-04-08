@@ -3,14 +3,13 @@ package dal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 import bo.Utilisateurs;
 
 public class UserDAOJdbcImpl implements UserDAO {
 	
 	private static final String SELECT_PSEUDO_MDP="SELECT * FROM UTILISATEURS WHERE pseudo=? AND mot_de_passe=?;";
+	private static final String INSERT_USER="INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur) VALUES (?,?,?,?,?,?,?,?,?,0,0);";
 
 	@Override
 	public Utilisateurs selectUserByPseudoMdp(String pseudo, String mdp) {
@@ -33,6 +32,26 @@ public class UserDAOJdbcImpl implements UserDAO {
 		}
 		
 		return user;
+	}
+
+	@Override
+	public void insertUser(Utilisateurs user) {
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			PreparedStatement pstmt = cnx.prepareStatement(INSERT_USER);
+			pstmt.setString(1, user.getPseudo());
+			pstmt.setString(2, user.getNom());
+			pstmt.setString(3, user.getPrenom());
+			pstmt.setString(4, user.getEmail());
+			pstmt.setString(5, user.getTel());
+			pstmt.setString(6, user.getRue());
+			pstmt.setString(7, user.getCode_postal());
+			pstmt.setString(8, user.getVille());
+			pstmt.setString(9, user.getMdp());
+			pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

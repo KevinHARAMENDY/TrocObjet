@@ -15,4 +15,8 @@ private UserDAO userDAO;
 		Utilisateurs user = this.userDAO.selectUserByPseudoMdp(pseudo,mdp);
 		return user;
 	}
+	
+	public void ajoutUser(Utilisateurs user) {
+		this.userDAO.insertUser(user);
+	}
 }
