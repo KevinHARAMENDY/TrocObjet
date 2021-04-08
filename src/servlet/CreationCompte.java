@@ -34,6 +34,11 @@ public class CreationCompte extends HttpServlet {
 			userMan.ajoutUser(user);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/pageCnx.jsp").forward(request, response);
 		} else {
+			if (request.getParameter("mdp") != request.getParameter("confirmation")) {
+				request.setAttribute("erreur", "Le mot de passe est différent de celui de la confirmation");
+			} else {
+				request.setAttribute("erreur", "Veuillez remplir tous les champs");
+			}
 			this.getServletContext().getRequestDispatcher("/WEB-INF/creationProfil.jsp").forward(request, response);
 		}
 	}

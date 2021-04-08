@@ -6,7 +6,11 @@
 	
 	<br><br><br>
 	
-	<form method="post" action="/TrocObjet/CreationCompte">
+	<C:if test="${!empty requestScope.erreur}">
+		<div class="alert alert-danger">${requestScope.erreur}</div>
+	</C:if>
+	
+	<form method="post" action="${pageContext.request.contextPath}/CreationCompte">
 		<div class="container-fluid">
 			<span>Pseudo : <input type="text" name="pseudo"></span>
 			<span style="float:right">Nom : <input type="text" name="nom"></span>
@@ -31,7 +35,7 @@
 		<div class="container-fluid"><input type="submit" style="margin-left:48%" value="Créer"></div><br>
 	</form>
 	
-	<div class="container-fluid" style="text-align:center"><a href="http://localhost:8080/TrocObjet/">Annuler</a></div><br>
+	<div class="container-fluid" style="text-align:center"><a href="${pageContext.request.contextPath}/">Annuler</a></div><br>
 
 	</body>
 </html>
