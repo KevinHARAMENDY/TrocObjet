@@ -27,6 +27,7 @@ public class PageCnx extends HttpServlet {
 		Utilisateurs user = userMan.afficheParPseudoMdp(pseudo, mdp);
 		
 		if (user == null) {
+			request.setAttribute("erreur", "Le pseudo ou le mot de passe est incorrect");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/pageCnx.jsp").forward(request, response);
 		} else {
 			HttpSession session = request.getSession();

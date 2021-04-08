@@ -3,9 +3,13 @@
 	
 	<div style="text-align:center;color:red;font-weight:bold">Connexion</div>
 	
-	<br><br><br>	
+	<br><br><br>
 	
-	<form method="post" action="/TrocObjet/PageConnexion">
+	<C:if test="${!empty requestScope.erreur}">
+		<div class="alert alert-danger">${requestScope.erreur}</div>
+	</C:if>
+	
+	<form method="post" action="${pageContext.request.contextPath}/PageConnexion">
 		<div class="container-fluid">Identifiant : <input type="text" name="identifiant"></div><br>
 		<div class="container-fluid">Mot de passe : <input type="password" name="mdp"></div><br>
 		<div class="container-fluid"><input type="submit" value="Connexion"></div><br>
@@ -16,7 +20,7 @@
 	
 	<br><br>
 	
-	<div class="container-fluid"><a href="/TrocObjet/CreationCompte">Créer un compte</a></div><br>
+	<div class="container-fluid"><a href="${pageContext.request.contextPath}/CreationCompte">Créer un compte</a></div><br>
 
 	</body>
 </html>
