@@ -19,4 +19,9 @@ private UserDAO userDAO;
 	public void ajoutUser(Utilisateurs user) {
 		this.userDAO.insertUser(user);
 	}
+	
+	public Utilisateurs selectByPseudo(String pseudo) {
+		Utilisateurs user = this.userDAO.selectUserByPseudo(pseudo);
+		return user;
+	}
 }
