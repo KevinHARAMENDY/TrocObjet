@@ -30,6 +30,7 @@
 	<input type="button" value="Rechercher">
 	
 		<a class="btn" href="${pageContext.request.contextPath}/afficherProfil?identifiant=Yugo" title="afficherProfil">Profil Yugo</a>
+		<a class="btn" href="${pageContext.request.contextPath}/supprimerProfil" title="supprimerProfil" onclick="return confirm('Confirmer la suppression du compte ?')">supprimerProfil </a>
 		
 	</body>
 </html>
