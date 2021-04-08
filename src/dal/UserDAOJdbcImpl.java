@@ -10,6 +10,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 	
 	private static final String SELECT_PSEUDO_MDP="SELECT * FROM UTILISATEURS WHERE pseudo=? AND mot_de_passe=?;";
 	private static final String INSERT_USER="INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur) VALUES (?,?,?,?,?,?,?,?,?,0,0);";
+	private static final String SELECT_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo=?;";
 
 	@Override
 	public Utilisateurs selectUserByPseudoMdp(String pseudo, String mdp) {
@@ -53,5 +54,27 @@ public class UserDAOJdbcImpl implements UserDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	@Override
+	public Utilisateurs selectUserByPseudo(String pseudo) {
+		Utilisateurs user = null;
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_PSEUDO);
+			pstmt.setString(1, pseudo);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next())
+			{
+				user = new Utilisateurs(rs.getInt(1), rs.getString(2), rs.getString(3),
+						rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), 
+						rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), 
+						rs.getBoolean(12));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
+
 
 }

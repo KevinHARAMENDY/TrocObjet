@@ -6,9 +6,12 @@
 			<a style="float:right" href="http://localhost:8080/TrocObjet/PageConnexion">S'inscrire - Se connecter</a>
 		</C:when>
 		<C:otherwise>
-			<span style="float:right">Enchères Vendre un article 
-			<a href="http://localhost:8080/Deconnexion">Déconnexion</a>
-<%-- 			<a class="btn" href="${pageContext.request.contextPath}/monProfil" title="MonProfil">Mon Profil</a> --%>
+			<span style="float:right">
+				Enchères 
+				Vendre un article 
+				<a href="http://localhost:8080/Deconnexion">Déconnexion</a>
+	
+				<%-- 			<a class="btn" href="${pageContext.request.contextPath}/monProfil" title="MonProfil">Mon Profil</a> --%>
 			</span>
 		</C:otherwise>
 	</C:choose>
