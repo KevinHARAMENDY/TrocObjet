@@ -34,6 +34,6 @@
 	<input type="button" value="Rechercher">
 	
 	<a class="btn" href="${pageContext.request.contextPath}/afficherProfil?identifiant=Yugo" title="afficherProfil">Profil Yugo</a>
-	
+		
 	</body>
 </html>
