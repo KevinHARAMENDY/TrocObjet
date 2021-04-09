@@ -3,7 +3,6 @@ package dal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import bo.Utilisateurs;
 
 public class UserDAOJdbcImpl implements UserDAO {
@@ -11,6 +10,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 	private static final String SELECT_PSEUDO_MDP="SELECT * FROM UTILISATEURS WHERE pseudo=? AND mot_de_passe=?;";
 	private static final String INSERT_USER="INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur) VALUES (?,?,?,?,?,?,?,?,?,0,0);";
 	private static final String SELECT_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo=?;";
+	private static final String DELETE_USER = "delete from UTILISATEURS WHERE pseudo=?;";
 
 	@Override
 	public Utilisateurs selectUserByPseudoMdp(String pseudo, String mdp) {
@@ -74,6 +74,18 @@ public class UserDAOJdbcImpl implements UserDAO {
 			e.printStackTrace();
 		}
 		return user;
+	}
+	
+	@Override
+	public void deleteUser(String pseudo) {
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{		
+			PreparedStatement pstmt = cnx.prepareStatement(DELETE_USER);
+			pstmt.setString(1, pseudo);
+			pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 

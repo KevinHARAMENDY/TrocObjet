@@ -24,4 +24,8 @@ private UserDAO userDAO;
 		Utilisateurs user = this.userDAO.selectUserByPseudo(pseudo);
 		return user;
 	}
+	
+	public void supprimerUser(String pseudo) {
+		this.userDAO.deleteUser(pseudo);
+	}
 }
