@@ -6,5 +6,4 @@ public interface UserDAO {
 	
 	public Utilisateurs selectUserByPseudoMdp(String pseudo, String mdp);
 	public void insertUser(Utilisateurs user);
-
 }

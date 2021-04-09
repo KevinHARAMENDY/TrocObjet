@@ -10,7 +10,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 	
 	private static final String SELECT_PSEUDO_MDP="SELECT * FROM UTILISATEURS WHERE pseudo=? AND mot_de_passe=?;";
 	private static final String INSERT_USER="INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur) VALUES (?,?,?,?,?,?,?,?,?,0,0);";
-
+	
 	@Override
 	public Utilisateurs selectUserByPseudoMdp(String pseudo, String mdp) {
 		Utilisateurs user = null;

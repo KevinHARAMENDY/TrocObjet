@@ -6,7 +6,7 @@
 			<a style="float:right" href="http://localhost:8080/TrocObjet/PageConnexion">S'inscrire - Se connecter</a>
 		</C:when>
 		<C:otherwise>
-			<span style="float:right">Enchères Vendre un article Mon profil Déconnexion</span>
+			<a style="float:right" href="http://localhost:8080/TrocObjet/NewEnchere">Enchères Vendre un article Mon profil Déconnexion</a>
 		</C:otherwise>
 	</C:choose>
 	
