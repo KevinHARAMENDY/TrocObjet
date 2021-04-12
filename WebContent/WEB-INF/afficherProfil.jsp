@@ -40,7 +40,9 @@
 	<div class="row justify-content-md-center">
 		<div class="col-2">Ville :</div>
 		<div class="col-3">${user.ville}</div>
-	</div>
+	</div><br>
+	
+	<div style="text-align:center"><a href="${pageContext.request.contextPath}/">Retour à l'accueil</a></div>
 
 </div>
 </body>
