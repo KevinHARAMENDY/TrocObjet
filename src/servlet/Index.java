@@ -52,19 +52,21 @@ public class Index extends HttpServlet {
     	List<String> lstAffichage = new ArrayList<>();
     	List<ArticlesVendu> lstArticles = new ArrayList<>();
     	List<Categories> lstCateg = categMan.afficheTout();
-		
-		if (request.getParameter("categorie").equals("") && request.getParameter("filtre").equals("")) {
+    	
+    	if (request.getParameter("categorie") == null && request.getParameter("filtre") == null) {
+    		//si on accède à l'index par une autre page
+    		lstArticles = artMan.afficheTout();
+    	} else if (request.getParameter("categorie").equals("") && request.getParameter("filtre").equals("")) {
 			//si les deux champs sont vides
 			lstArticles = artMan.afficheTout();
 		} else if (request.getParameter("categorie") != "" && request.getParameter("filtre").equals("")) {
 			//si seule la catégorie est renseignée
-			//TODO erreur 500 si aucun article avec catégorie
 			lstArticles = artMan.afficheCateg(categMan.afficheParNom(request.getParameter("categorie")).getNoCategorie());
 		} else if (request.getParameter("filtre") != "" && request.getParameter("categorie").equals("")) {
 			//si seul le filtre est renseigné
 			lstArticles = artMan.afficheLikeNom(request.getParameter("filtre"));
 		} else if (request.getParameter("categorie") != "" && request.getParameter("filtre") != "") {
-			//TODO si les deux champs sont renseignés
+			//si les deux champs sont renseignés
 			lstArticles = artMan.afficheCategNom(request.getParameter("filtre"),categMan.afficheParNom(request.getParameter("categorie")).getNoCategorie());
 		}
 		
