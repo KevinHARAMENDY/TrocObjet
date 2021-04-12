@@ -8,7 +8,7 @@ import dal.DAOFactory;
 
 public class CategorieManager {
 
-private CategorieDAO categorieDAO;
+	private CategorieDAO categorieDAO;
 	
 	public CategorieManager() {
 		this.categorieDAO=DAOFactory.getCategorieDAO();
@@ -16,5 +16,13 @@ private CategorieDAO categorieDAO;
 	
 	public List<Categories> selectCategorie() {
 		return this.categorieDAO.getCategorie();
+	}
+
+	public List<Categories> afficheTout() {
+		return this.categorieDAO.selectAll();
+	}
+
+	public Categories afficheParNom(String nom) {
+		return this.categorieDAO.selectByNom(nom);
 	}
 }

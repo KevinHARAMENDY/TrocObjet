@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bll.ArticleManager;
 import bll.CategorieManager;
 import bll.EnchereManager;
 import bo.Categories;
+import bo.Utilisateurs;
 
 @WebServlet("/NewEnchere")
 public class NewEnchere extends HttpServlet {
@@ -33,30 +35,33 @@ public class NewEnchere extends HttpServlet {
 		String categorie = request.getParameter("categorie");
 		Object photo = request.getParameter("photo");
 		String prix = request.getParameter("prix");
-		String dateDebut = request.getParameter("début");
+		String dateDebut = request.getParameter("debut");
 		String dateFin = request.getParameter("fin");
 		String rue = request.getParameter("rue");
 		String cp = request.getParameter("cp");
 		String ville = request.getParameter("ville");
 		
-		int noCategorie = 0;
-		Date debut = null;
-		Date fin = null;
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			debut = Date.valueOf(sdf.format(dateDebut));
-			fin = Date.valueOf(sdf.format(dateFin));
+		System.out.println(dateDebut);
 		
-		CategorieManager cm = new CategorieManager();
-		List<Categories> categorieList = cm.selectCategorie();
-		for(Categories a : categorieList) {
-			if(a.getLibelle().equals(categorie)) {
-				noCategorie = a.getNoCategorie();
-			}
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date dateD = null;
+		java.util.Date dateF = null;
+		try {
+			dateD = sdf.parse(dateDebut);
+			dateF = sdf.parse(dateFin);
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
-		EnchereManager em = new EnchereManager();
-		em.insertArticle(article, description, debut, fin, Integer.parseInt(prix), Integer.parseInt(request.getSession().getId()), noCategorie);
-		int noArticle = em.getNoArticle(article);
-		em.insertEnchere(Integer.parseInt(request.getSession().getId()), noArticle, debut, Integer.parseInt(prix));
+		 
+		java.sql.Date debut = new java.sql.Date(dateD.getTime());
+		java.sql.Date fin = new java.sql.Date(dateF.getTime());
+
+		System.out.println(debut);
+		System.out.println(fin);
+		
+		Utilisateurs user = (Utilisateurs) request.getSession().getAttribute("User");
+		ArticleManager am = new ArticleManager();
+		am.insertArticle(article, description, debut, fin, Integer.parseInt(prix), user.getNoUtilisateur(), Integer.parseInt(categorie));
 		
 	}
 

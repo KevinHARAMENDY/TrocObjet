@@ -8,5 +8,6 @@ public interface UserDAO {
 	public void insertUser(Utilisateurs user);
 	public Utilisateurs selectUserByPseudo(String pseudo);
 	public void deleteUser(String pseudo);
+	public Utilisateurs selectUserById(int id);
 
 }
