@@ -35,7 +35,8 @@ public class Index extends HttpServlet {
     		Utilisateurs user = userMan.afficheParId(art.getNoUtilisateur());
     		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     		lstAffichage.add(art.getNom_article() + " @ " + art.getPrix_vente() +
-    				" @ " + sdf.format(art.getDate_fin_encheres()) + " @ " + user.getPseudo());
+    				" @ " + sdf.format(art.getDate_fin_encheres()) + " @ " + user.getPseudo()
+    				+ " @ " + art.getNoArticle());
     	}
     	request.setAttribute("Articles", lstAffichage);
     	request.setAttribute("Categories", lstCateg);
