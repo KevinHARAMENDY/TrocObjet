@@ -3,6 +3,7 @@ package dal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import bo.Utilisateurs;
 
 public class UserDAOJdbcImpl implements UserDAO {
@@ -11,6 +12,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 	private static final String INSERT_USER="INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur) VALUES (?,?,?,?,?,?,?,?,?,0,0);";
 	private static final String SELECT_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo=?;";
 	private static final String DELETE_USER = "delete from UTILISATEURS WHERE pseudo=?;";
+	private static final String UPDATE_USER = "update UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ? WHERE no_utilisateur = ?;";
 
 	@Override
 	public Utilisateurs selectUserByPseudoMdp(String pseudo, String mdp) {
@@ -25,8 +27,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 			{
 				user = new Utilisateurs(rs.getInt(1), rs.getString(2), rs.getString(3),
 						rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), 
-						rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), 
-						rs.getBoolean(12));
+						rs.getString(8), rs.getString(9), rs.getInt(11),rs.getBoolean(12));
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -55,6 +56,10 @@ public class UserDAOJdbcImpl implements UserDAO {
 		}
 	}
 	
+	/**
+	 * méthode qui sélectionne toutes les infos de l'utilisateur
+	 *  @param pseudo
+	 */
 	@Override
 	public Utilisateurs selectUserByPseudo(String pseudo) {
 		Utilisateurs user = null;
@@ -76,6 +81,10 @@ public class UserDAOJdbcImpl implements UserDAO {
 		return user;
 	}
 	
+	/**
+	 * Méthode qui supprime le l'utilisateur suivant le pseudo
+	 * @param pseudo
+	 */
 	@Override
 	public void deleteUser(String pseudo) {
 		try(Connection cnx = ConnectionProvider.getConnection())
@@ -87,6 +96,33 @@ public class UserDAOJdbcImpl implements UserDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Méthode qui met à jour l'utilisateur
+	 * @param majUser
+	 */
+	@Override
+	public void updateUser(Utilisateurs majUser) {
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_USER);
+			pstmt.setString(1, majUser.getPseudo());
+			pstmt.setString(2, majUser.getNom());
+			pstmt.setString(3, majUser.getPrenom());
+			pstmt.setString(4, majUser.getEmail());
+			pstmt.setString(5, majUser.getTel());
+			pstmt.setString(6, majUser.getRue());
+			pstmt.setString(7, majUser.getCode_postal());
+			pstmt.setString(8, majUser.getVille());
+			pstmt.setString(9, majUser.getMdp());
+			pstmt.setInt(10, majUser.getNoUtilisateur());
+			
+			pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
+	
 
 }

@@ -13,10 +13,9 @@ import bo.Utilisateurs;
  * Servlet implementation class afficherProfil
  */
 @WebServlet("/afficherProfil")
-public class afficherProfil extends HttpServlet {
+public class AfficherProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// récupérer le pseudo (identifiant) par jsp lors du clic sur le pseudo
 		String pseudo = request.getParameter("identifiant");
@@ -27,11 +26,8 @@ public class afficherProfil extends HttpServlet {
 		if (user != null) {
 			request.setAttribute("user", user);
 		}
-		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/afficherProfil.jsp").forward(request, response);
-
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

@@ -20,12 +20,29 @@ private UserDAO userDAO;
 		this.userDAO.insertUser(user);
 	}
 	
+	/**
+	 * Méthode qui retourne l'utilisateur
+	 * @param pseudo
+	 * 
+	 */
 	public Utilisateurs selectByPseudo(String pseudo) {
 		Utilisateurs user = this.userDAO.selectUserByPseudo(pseudo);
 		return user;
 	}
 	
+	/**
+	 * Méthode qui supprime l'utilisateur
+	 * @param pseudo
+	 */
 	public void supprimerUser(String pseudo) {
 		this.userDAO.deleteUser(pseudo);
+	}
+	
+	/**
+	 * Méthode pour mettre à jour l'utilisateur
+	 * @param majUser
+	 */
+	public void updateUser(Utilisateurs majUser) {
+		this.userDAO.updateUser(majUser);
 	}
 }

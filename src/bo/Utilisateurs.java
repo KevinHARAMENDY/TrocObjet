@@ -54,6 +54,37 @@ public class Utilisateurs implements Serializable {
 		this.pseudo = pseudo;
 		this.mdp = mdp;
 	}
+	
+/**
+ * Constructeur Utilisateurs sans le mdp
+ * 
+ * @param noUtilisateur
+ * @param pseudo
+ * @param nom
+ * @param prenom
+ * @param email
+ * @param tel
+ * @param rue
+ * @param code_postal
+ * @param ville
+ * @param credit
+ * @param admin
+ */
+	public Utilisateurs(int noUtilisateur, String pseudo, String nom, String prenom, String email, String tel,
+			String rue, String code_postal, String ville, int credit, boolean admin) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.tel = tel;
+		this.rue = rue;
+		this.code_postal = code_postal;
+		this.ville = ville;
+		this.credit = credit;
+		this.admin = admin;
+	}
 
 	public int getNoUtilisateur() {
 		return noUtilisateur;
