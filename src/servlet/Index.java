@@ -32,7 +32,7 @@ public class Index extends HttpServlet {
     	List<String> lstAffichage = new ArrayList<>();
     	
     	for(ArticlesVendu art : lstArticles) {
-    		Utilisateurs user = userMan.afficheParId(art.getNoUtilisateur());
+    		Utilisateurs user = userMan.afficheParId(art.getUtilisateur().getNoUtilisateur());
     		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     		lstAffichage.add(art.getNom_article() + " @ " + art.getPrix_vente() +
     				" @ " + sdf.format(art.getDate_fin_encheres()) + " @ " + user.getPseudo()
@@ -71,7 +71,7 @@ public class Index extends HttpServlet {
 		}
 		
 		for(ArticlesVendu art : lstArticles) {
-    		Utilisateurs user = userMan.afficheParId(art.getNoUtilisateur());
+    		Utilisateurs user = userMan.afficheParId(art.getUtilisateur().getNoUtilisateur());
     		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     		lstAffichage.add(art.getNom_article() + " @ " + art.getPrix_vente() +
     				" @ " + sdf.format(art.getDate_fin_encheres()) + " @ " + user.getPseudo()
