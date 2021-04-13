@@ -12,24 +12,24 @@
 	
 	<form method="post" action="${pageContext.request.contextPath}/CreationCompte">
 		<div class="container-fluid">
-			<span>Pseudo : <input type="text" name="pseudo"></span>
-			<span style="float:right">Nom : <input type="text" name="nom"></span>
+			<span>Pseudo : <input type="text" name="pseudo" value="${requestScope.pseudo}"></span>
+			<span style="float:right">Nom : <input type="text" name="nom" value="${requestScope.nom}"></span>
 		</div><br>
 		<div class="container-fluid">
-			<span>Prénom : <input type="text" name="prenom"></span>
-			<span style="float:right">Email : <input type="text" name="email"></span>
+			<span>Prénom : <input type="text" name="prenom" value="${requestScope.prenom}"></span>
+			<span style="float:right">Email : <input type="text" name="email" value="${requestScope.email}"></span>
 		</div><br>
 		<div class="container-fluid">
-			<span>Téléphone : <input type="text" name="tel"></span>
-			<span style="float:right">Rue : <input type="text" name="rue"></span>
+			<span>Téléphone : <input type="text" name="tel" value="${requestScope.tel}"></span>
+			<span style="float:right">Rue : <input type="text" name="rue" value="${requestScope.rue}"></span>
 		</div><br>
 		<div class="container-fluid">
-			<span>Code postal : <input type="text" name="cp"></span>
-			<span style="float:right">Ville : <input type="text" name="ville"></span>
+			<span>Code postal : <input type="text" name="cp" value="${requestScope.cp}"></span>
+			<span style="float:right">Ville : <input type="text" name="ville" value="${requestScope.ville}"></span>
 		</div><br>
 		<div class="container-fluid">
-			<span>Mot de passe : <input type="password" name="mdp"></span>
-			<span style="float:right">Confirmation : <input type="password" name="confirmation"></span>
+			<span>Mot de passe : <input type="password" name="mdp" value="${requestScope.mdp}"></span>
+			<span style="float:right">Confirmation : <input type="password" name="confirmation" value="${requestScope.confirmation}"></span>
 		</div><br>
 		
 		<div class="container-fluid"><input type="submit" style="margin-left:48%" value="Créer"></div><br>

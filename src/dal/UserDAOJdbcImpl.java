@@ -13,6 +13,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 	private static final String SELECT_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo=?;";
 	private static final String DELETE_USER = "delete from UTILISATEURS WHERE pseudo=?;";
 	private static final String UPDATE_USER = "update UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ? WHERE no_utilisateur = ?;";
+	private static final String SELECT_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur=?";
 
 	@Override
 	public Utilisateurs selectUserByPseudoMdp(String pseudo, String mdp) {
@@ -123,6 +124,26 @@ public class UserDAOJdbcImpl implements UserDAO {
 		}
 	}
 
-	
+	@Override
+	public Utilisateurs selectUserById(int id) {
+		Utilisateurs user = null;
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_ID);
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next())
+			{
+				user = new Utilisateurs(rs.getInt(1), rs.getString(2), rs.getString(3),
+						rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), 
+						rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), 
+						rs.getBoolean(12));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
+
 
 }

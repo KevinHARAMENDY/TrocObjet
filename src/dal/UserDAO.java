@@ -9,6 +9,7 @@ public interface UserDAO {
 	public Utilisateurs selectUserByPseudo(String pseudo);
 	public void deleteUser(String pseudo);
 	public void updateUser(Utilisateurs majUser);
+	public Utilisateurs selectUserById(int id);
 
 
 }

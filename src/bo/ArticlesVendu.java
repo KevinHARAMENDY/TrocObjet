@@ -9,20 +9,22 @@ public class ArticlesVendu implements Serializable {
 	private String nom_article;
 	private String description;
 	private Date date_debut_encheres;
+	private Date date_fin_encheres;
 	private int prix_initial;
 	private int prix_vente;
-	private Utilisateurs noUtilisateur;
-	private Categories noCategorie;
+	private int noUtilisateur;
+	private int noCategorie;
 	
 	public ArticlesVendu() {}
 
 	public ArticlesVendu(int noArticle, String nom_article, String description, Date date_debut_encheres,
-			int prix_initial, int prix_vente, Utilisateurs noUtilisateur, Categories noCategorie) {
+			Date date_fin_encheres, int prix_initial, int prix_vente, int noUtilisateur, int noCategorie) {
 		super();
 		this.noArticle = noArticle;
 		this.nom_article = nom_article;
 		this.description = description;
 		this.date_debut_encheres = date_debut_encheres;
+		this.date_fin_encheres = date_fin_encheres;
 		this.prix_initial = prix_initial;
 		this.prix_vente = prix_vente;
 		this.noUtilisateur = noUtilisateur;
@@ -60,6 +62,14 @@ public class ArticlesVendu implements Serializable {
 	public void setDate_debut_encheres(Date date_debut_encheres) {
 		this.date_debut_encheres = date_debut_encheres;
 	}
+	
+	public Date getDate_fin_encheres() {
+		return date_fin_encheres;
+	}
+
+	public void setDate_fin_encheres(Date date_fin_encheres) {
+		this.date_fin_encheres = date_fin_encheres;
+	}
 
 	public int getPrix_initial() {
 		return prix_initial;
@@ -77,19 +87,19 @@ public class ArticlesVendu implements Serializable {
 		this.prix_vente = prix_vente;
 	}
 
-	public Utilisateurs getNoUtilisateur() {
+	public int getNoUtilisateur() {
 		return noUtilisateur;
 	}
 
-	public void setNoUtilisateur(Utilisateurs noUtilisateur) {
+	public void setNoUtilisateur(int noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
 
-	public Categories getNoCategorie() {
+	public int getNoCategorie() {
 		return noCategorie;
 	}
 
-	public void setNoCategorie(Categories noCategorie) {
+	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
 	}
 
