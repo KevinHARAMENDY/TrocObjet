@@ -18,4 +18,6 @@ public interface ArticleDAO {
 	public void insertArticle(String nomArticle, String description, Date debut, Date fin, int prixInitial, int noUtilisateur, int noCategorie);
 
 	public int getNoArticle(String nomArticle);
+
+	public ArticlesVendu getArticleByNo(int noArticle);
 }

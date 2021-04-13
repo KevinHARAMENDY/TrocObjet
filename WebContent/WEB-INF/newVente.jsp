@@ -6,7 +6,7 @@
 	
 	<br><br><br>
 	
-	<form action="/TrocObjet/NewEnchere" method="post" class="form-example">
+	<form action="/TrocObjet/NewVente" method="post" class="form-example">
 		<div class="container-fluid">Article : <input type="text" name="article"></div><br>
 		<div class="container-fluid">Description : <textarea name="description"></textarea></div><br>
 		

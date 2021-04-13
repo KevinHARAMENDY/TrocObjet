@@ -22,7 +22,7 @@
 			<C:otherwise>
 				<span style="float:right">
 					Enchères 
-					Vendre un article 
+					<a href="${pageContext.request.contextPath}/NewVente">Vendre un article</a>
 					<a href="${pageContext.request.contextPath}/Deconnexion">Déconnexion</a>
 		
 					<%-- 			<a class="btn" href="${pageContext.request.contextPath}/monProfil" title="MonProfil">Mon Profil</a> --%>
@@ -60,7 +60,7 @@
 			%>
 				<div class="card" style="width: 18rem;display: inline-block">
 				  <div class="card-body">
-				    <h5 class="card-title"><%=tab[0].trim()%></h5>
+				    <h5 class="card-title"><a href="${pageContext.request.contextPath}/DetailVente?id=<%=tab[4].trim()%>"><%=tab[0].trim()%></a></h5>
 				    <p class="card-text">Prix : <%=tab[1].trim()%> points</p>
 				    <p class="card-text">Fin de l'enchère : <%=tab[2].trim()%></p>
 				    <p class="card-text">Vendeur : <a href="${pageContext.request.contextPath}/afficherProfil?identifiant=<%=tab[3].trim()%>" title="afficherProfil"><%=tab[3].trim()%></a></p>

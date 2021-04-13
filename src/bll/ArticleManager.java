@@ -37,4 +37,8 @@ public class ArticleManager {
 	public int getNoArticle(String nomArticle) {
 		return this.articleDAO.getNoArticle(nomArticle);
 	}
+
+	public ArticlesVendu getArticleByNo(int noArticle) {
+		return this.articleDAO.getArticleByNo(noArticle);
+	}
 }

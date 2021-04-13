@@ -16,6 +16,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	private static final String SELECT_ALL="SELECT * FROM ARTICLES_VENDUS WHERE date_fin_encheres >= GETDATE();";
 	private static final String SELECT_ALL_NOM="SELECT * FROM ARTICLES_VENDUS WHERE date_fin_encheres >= GETDATE() AND nom_article LIKE ?;";
 	private static final String SELECT_ALL_CATEG="SELECT * FROM ARTICLES_VENDUS WHERE date_fin_encheres >= GETDATE() AND no_categorie=?;";
+	private static final String SELECT_BY_NO_ARTICLE="SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?";
 
 	@Override
 	public List<ArticlesVendu> selectAllArticles() {
@@ -122,6 +123,22 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 			e.printStackTrace();
 		}
 		return noArticle;
+	}
+
+	@Override
+	public ArticlesVendu getArticleByNo(int noArticle) {
+		
+		ArticlesVendu article = null;
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_NO_ARTICLE);
+			pstmt.setInt(1, noArticle);
+			ResultSet rs = pstmt.executeQuery();
+			article = new ArticlesVendu(rs.getInt(1), rs.getString(2), rs.getString(3), new Date(rs.getDate(4).getTime()), new Date(rs.getDate(5).getTime()), rs.getInt(6), rs.getInt(7), rs.getInt(8), rs.getInt(9));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return article;
 	}
 
 }
