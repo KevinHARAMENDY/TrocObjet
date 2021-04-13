@@ -9,9 +9,8 @@
 			<span style="float:right">
 				Enchères 
 				Vendre un article 
+				<a href="${pageContext.request.contextPath}/monProfil">Mon Profil</a>
 				<a href="${pageContext.request.contextPath}/Deconnexion">Déconnexion</a>
-	
-				<%-- 			<a class="btn" href="${pageContext.request.contextPath}/monProfil" title="MonProfil">Mon Profil</a> --%>
 			</span>
 		</C:otherwise>
 	</C:choose>
@@ -33,8 +32,5 @@
 	
 	<input type="button" value="Rechercher">
 	
-	<a class="btn" href="${pageContext.request.contextPath}/afficherProfil?identifiant=Yugo" title="afficherProfil">Profil Yugo</a>
-	<a class="btn" href="${pageContext.request.contextPath}/supprimerProfil" title="supprimerProfil" onclick="return confirm('Confirmer la suppression du compte ?')">supprimerProfil </a>
-
 	</body>
 </html>
