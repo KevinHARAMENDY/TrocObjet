@@ -23,9 +23,9 @@
 				<span style="float:right">
 					Enchères 
 					Vendre un article 
+					<a class="btn" href="${pageContext.request.contextPath}/monProfil" title="MonProfil">Mon Profil</a>
 					<a href="${pageContext.request.contextPath}/Deconnexion">Déconnexion</a>
 		
-					<%-- 			<a class="btn" href="${pageContext.request.contextPath}/monProfil" title="MonProfil">Mon Profil</a> --%>
 				</span>
 			</C:otherwise>
 		</C:choose>
