@@ -1,7 +1,7 @@
 <%@ include file="includes/entete.jsp"%>
 
 <div class="container-fluid">
-	<div style="text-align: center;">
+	<div class ="text-center">
 		<h1>profil : ${user.pseudo}</h1>
 	</div>
 

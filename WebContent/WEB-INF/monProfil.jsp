@@ -1,8 +1,8 @@
 <%@ include file="includes/entete.jsp"%>
 
 <div class="container-fluid">
-	<div style="text-align: center;">
-		<h1>profil : ${User.pseudo}</h1>
+	<div class ="text-center">
+		<h1>Mon profil : ${User.pseudo}</h1>
 	</div>
 
 	<br>
