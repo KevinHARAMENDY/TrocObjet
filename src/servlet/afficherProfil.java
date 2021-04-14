@@ -16,7 +16,6 @@ import bo.Utilisateurs;
 public class afficherProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// récupérer le pseudo (identifiant) par jsp lors du clic sur le pseudo
 		String pseudo = request.getParameter("identifiant");

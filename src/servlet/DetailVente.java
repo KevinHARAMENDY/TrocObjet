@@ -15,16 +15,16 @@ public class DetailVente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String noArticle = request.getParameter("id");
-		ArticleManager am = new ArticleManager();
-		ArticlesVendu article = am.getArticleByNo(Integer.parseInt(noArticle));
-		System.out.println(article);
-		request.setAttribute("Article", article);
+		if (request.getParameter("id") != null) {
+			String noArticle = request.getParameter("id");
+			ArticleManager am = new ArticleManager();
+			ArticlesVendu article = am.getArticleByNo(Integer.parseInt(noArticle));
+			request.setAttribute("article", article);
+		}		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/detailVente.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

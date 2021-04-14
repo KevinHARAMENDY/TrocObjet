@@ -12,13 +12,13 @@ public class ArticlesVendu implements Serializable {
 	private Date date_fin_encheres;
 	private int prix_initial;
 	private int prix_vente;
-	private int noUtilisateur;
-	private int noCategorie;
+	private Utilisateurs utilisateur;
+	private Categories categorie;
 	
 	public ArticlesVendu() {}
 
 	public ArticlesVendu(int noArticle, String nom_article, String description, Date date_debut_encheres,
-			Date date_fin_encheres, int prix_initial, int prix_vente, int noUtilisateur, int noCategorie) {
+			Date date_fin_encheres, int prix_initial, int prix_vente, Utilisateurs utilisateur, Categories categorie) {
 		super();
 		this.noArticle = noArticle;
 		this.nom_article = nom_article;
@@ -27,8 +27,8 @@ public class ArticlesVendu implements Serializable {
 		this.date_fin_encheres = date_fin_encheres;
 		this.prix_initial = prix_initial;
 		this.prix_vente = prix_vente;
-		this.noUtilisateur = noUtilisateur;
-		this.noCategorie = noCategorie;
+		this.utilisateur = utilisateur;
+		this.categorie = categorie;
 	}
 
 	public int getNoArticle() {
@@ -87,20 +87,19 @@ public class ArticlesVendu implements Serializable {
 		this.prix_vente = prix_vente;
 	}
 
-	public int getNoUtilisateur() {
-		return noUtilisateur;
+	public Utilisateurs getUtilisateur() {
+		return utilisateur;
 	}
 
-	public void setNoUtilisateur(int noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
+	public void setUtilisateur(Utilisateurs utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 
-	public int getNoCategorie() {
-		return noCategorie;
+	public Categories getCategorie() {
+		return categorie;
 	}
 
-	public void setNoCategorie(int noCategorie) {
-		this.noCategorie = noCategorie;
+	public void setCategorie(Categories categorie) {
+		this.categorie = categorie;
 	}
-
 }

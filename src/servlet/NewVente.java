@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import bll.ArticleManager;
 import bll.CategorieManager;
-import bll.EnchereManager;
+import bll.UserManager;
+import bo.ArticlesVendu;
 import bo.Categories;
 import bo.Utilisateurs;
 
@@ -26,6 +26,14 @@ public class NewVente extends HttpServlet {
 		CategorieManager cm = new CategorieManager();
 		List<Categories> listCategorie = cm.selectCategorie();
 		request.setAttribute("Categories", listCategorie);
+		Utilisateurs user = (Utilisateurs) request.getSession().getAttribute("User");
+		String pseudo = user.getPseudo(); 
+		UserManager um = new UserManager();
+		Utilisateurs utilisateur = um.selectByPseudo(pseudo);
+		request.setAttribute("rue", utilisateur.getRue()); 
+		request.setAttribute("cp", utilisateur.getCode_postal()); 
+		request.setAttribute("ville", utilisateur.getVille());
+		 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/newVente.jsp").forward(request, response);
 	}
 
@@ -57,6 +65,9 @@ public class NewVente extends HttpServlet {
 		Utilisateurs user = (Utilisateurs) request.getSession().getAttribute("User");
 		ArticleManager am = new ArticleManager();
 		am.insertArticle(article, description, debut, fin, Integer.parseInt(prix), user.getNoUtilisateur(), Integer.parseInt(categorie));
+		
+		ArticlesVendu art = am.getArticleByNom(article);
+		request.setAttribute("art", art);
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/detailVente.jsp").forward(request, response);
 	}

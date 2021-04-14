@@ -18,6 +18,12 @@ public class Retraits implements Serializable {
 		this.code_postal = code_postal;
 		this.ville = ville;
 	}
+	
+	public Retraits(String rue, String code_postal, String ville) {
+		this.rue = rue;
+		this.code_postal = code_postal;
+		this.ville = ville;
+	}
 
 	public ArticlesVendu getNoArticle() {
 		return noArticle;

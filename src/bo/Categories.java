@@ -9,10 +9,13 @@ public class Categories implements Serializable {
 	
 	public Categories() {}
 
+	public Categories(String libelle) {
+		setLibelle(libelle);
+	}
+	
 	public Categories(int noCategorie, String libelle) {
-		super();
-		this.noCategorie = noCategorie;
-		this.libelle = libelle;
+		setNoCategorie(noCategorie);
+		setLibelle(libelle);
 	}
 
 	public int getNoCategorie() {

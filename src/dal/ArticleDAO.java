@@ -20,4 +20,6 @@ public interface ArticleDAO {
 	public int getNoArticle(String nomArticle);
 
 	public ArticlesVendu getArticleByNo(int noArticle);
+
+	public ArticlesVendu getArticleByNom(String nomArticle);
 }
