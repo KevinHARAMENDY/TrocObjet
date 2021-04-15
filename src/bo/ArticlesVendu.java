@@ -16,6 +16,40 @@ public class ArticlesVendu implements Serializable {
 	private Categories categorie;
 	
 	public ArticlesVendu() {}
+	
+	/**
+	 * Constructeur ArticleVendu avec noArticle
+	 * @param noArticle
+	 */
+	public ArticlesVendu(int noArticle) {
+		super();
+		this.noArticle = noArticle;
+	}
+	
+	
+
+	/**
+	 * Constructeur ArticlesVendu
+	 * 
+	 * @param noArticle
+	 * @param nom_article
+	 * @param description
+	 * @param date_fin_encheres
+	 * @param prix_initial
+	 * @param prix_vente
+	 * @param categorie
+	 */
+	public ArticlesVendu(int noArticle, String nom_article, String description, Date date_fin_encheres,
+			int prix_initial, int prix_vente, Categories categorie) {
+		super();
+		this.noArticle = noArticle;
+		this.nom_article = nom_article;
+		this.description = description;
+		this.date_fin_encheres = date_fin_encheres;
+		this.prix_initial = prix_initial;
+		this.prix_vente = prix_vente;
+		this.categorie = categorie;
+	}
 
 	public ArticlesVendu(int noArticle, String nom_article, String description, Date date_debut_encheres,
 			Date date_fin_encheres, int prix_initial, int prix_vente, Utilisateurs utilisateur,

@@ -95,7 +95,7 @@
 		</div>
 		
 		<button class="btn btn-primary" type="submit">Valider</button>
-		<a class="btn btn-primary" href="${pageContext.request.contextPath}/supprimerProfil" role="button" onclick="return confirm('Confirmer la suppression du compte ?')">supprimerProfil</a>
+		<a class="btn btn-primary" href="" role="button" onclick="return confirm('Confirmer la suppression du compte ?')">supprimerProfil</a>
 	
 	</form>
 

@@ -11,6 +11,37 @@ public class Encheres implements Serializable {
 	private int montant_enchere;
 	
 	public Encheres() {}
+	
+	
+	
+	/**
+	 *  Constructeur Encheres
+	 * 
+	 * @param noUtilisateur
+	 * @param noArticle
+	 * @param montant_enchere
+	 */
+	public Encheres(Utilisateurs noUtilisateur, ArticlesVendu noArticle, int montant_enchere) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+		this.noArticle = noArticle;
+		this.montant_enchere = montant_enchere;
+	}
+
+	/**
+	 * Constructeur Encheres
+	 * 
+	 * @param noUtilisateur
+	 * @param noArticle
+	 * @param date_enchere
+	 */
+	public Encheres(Utilisateurs noUtilisateur, ArticlesVendu noArticle, Date date_enchere) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+		this.noArticle = noArticle;
+		this.date_enchere = date_enchere;
+	}
+
 
 	public Encheres(Utilisateurs noUtilisateur, ArticlesVendu noArticle, Date date_enchere, int montant_enchere) {
 		super();

@@ -49,8 +49,6 @@
 			<input type="submit" value="Rechercher">
 		</form>
 		
-		<a class="btn" href="${pageContext.request.contextPath}/supprimerProfil" title="supprimerProfil" onclick="return confirm('Confirmer la suppression du compte ?')">supprimerProfil</a>
-		
 		<br><br>
 		
 			<%
@@ -60,7 +58,7 @@
 			%>
 				<div class="card" style="width: 18rem;display: inline-block">
 				  <div class="card-body">
-				    <h5 class="card-title"><%=tab[0].trim()%></h5>
+				    <h5 class="card-title"><a href="${pageContext.request.contextPath}/detailEnchere?idArticle=<%=tab[4].trim()%>" title="afficherProfil"><%=tab[0].trim()%></a></h5>
 				    <p class="card-text">Prix : <%=tab[1].trim()%> points</p>
 				    <p class="card-text">Fin de l'enchère : <%=tab[2].trim()%></p>
 				    <p class="card-text">Vendeur : <a href="${pageContext.request.contextPath}/afficherProfil?identifiant=<%=tab[3].trim()%>" title="afficherProfil"><%=tab[3].trim()%></a></p>
