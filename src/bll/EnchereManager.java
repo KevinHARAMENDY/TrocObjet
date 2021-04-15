@@ -1,5 +1,7 @@
 package bll;
 
+import java.util.List;
+
 import bo.Encheres;
 import dal.DAOFactory;
 import dal.EnchereDAO;

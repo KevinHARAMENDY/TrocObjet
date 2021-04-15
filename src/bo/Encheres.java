@@ -23,8 +23,8 @@ public class Encheres implements Serializable {
 	 */
 	public Encheres(Utilisateurs noUtilisateur, ArticlesVendu noArticle, int montant_enchere) {
 		super();
-		this.noUtilisateur = noUtilisateur;
-		this.noArticle = noArticle;
+		this.utilisateur = noUtilisateur;
+		this.article = noArticle;
 		this.montant_enchere = montant_enchere;
 	}
 
@@ -37,8 +37,8 @@ public class Encheres implements Serializable {
 	 */
 	public Encheres(Utilisateurs noUtilisateur, ArticlesVendu noArticle, Date date_enchere) {
 		super();
-		this.noUtilisateur = noUtilisateur;
-		this.noArticle = noArticle;
+		this.utilisateur = noUtilisateur;
+		this.article = noArticle;
 		this.date_enchere = date_enchere;
 	}
 

@@ -67,9 +67,9 @@ public class detailEnchere extends HttpServlet {
 		
 		// j'hydrate newEncheres
 		Encheres newEncheres = new Encheres();
-		newEncheres.setNoArticle(article);
+		newEncheres.setArticle(article);
 		newEncheres.setMontant_enchere(Integer.parseInt(maProposition));
-		newEncheres.setNoUtilisateur(noUtilisateurs);
+		newEncheres.setUtilisateur(noUtilisateurs);
 
 		// je mets à jour l'enchere
 		EnchereManager enchereMan = new EnchereManager();
