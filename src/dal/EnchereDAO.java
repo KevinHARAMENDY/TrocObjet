@@ -1,5 +1,6 @@
 package dal;
 
+import java.util.List;
 import bo.Encheres;
 
 /**
@@ -8,6 +9,10 @@ import bo.Encheres;
  *
  */
 public interface EnchereDAO {
+	
+	public List<Encheres> selectAllId(int id);
+
+	public List<Encheres> selectAllPlusGrand(int id);
 
 	/**
 	 * Méthode qui retourne une enchere
@@ -25,3 +30,4 @@ public interface EnchereDAO {
 	public void updateEnchere(Encheres enchere);
 
 }
+
