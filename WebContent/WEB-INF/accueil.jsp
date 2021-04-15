@@ -22,10 +22,9 @@
 			<C:otherwise>
 				<span style="float:right">
 					Enchères 
-					Vendre un article 
-					<a class="btn" href="${pageContext.request.contextPath}/monProfil" title="MonProfil">Mon Profil</a>
+					Vendre un article
+					<a href="${pageContext.request.contextPath}/monProfil" title="MonProfil">Mon Profil</a>
 					<a href="${pageContext.request.contextPath}/Deconnexion">Déconnexion</a>
-		
 				</span>
 			</C:otherwise>
 		</C:choose>
@@ -45,11 +44,26 @@
 			  	</C:forEach>
 			  </select>
 			</div><br>
-			
-			<input type="submit" value="Rechercher">
-		</form>
 		
-		<a class="btn" href="${pageContext.request.contextPath}/supprimerProfil" title="supprimerProfil" onclick="return confirm('Confirmer la suppression du compte ?')">supprimerProfil</a>
+		<!-- <a class="btn" href="${pageContext.request.contextPath}/supprimerProfil" title="supprimerProfil" onclick="return confirm('Confirmer la suppression du compte ?')">supprimerProfil</a>-->
+		<C:if test="${!empty sessionScope.User}">
+			<div style="display:inline-block;margin-left:2%">
+				<div><input type="radio" name="achats" id="achats" onchange="clicAchats()"> Achats</div>
+				<div><input type="radio" id="e_ouvertes" name="ach" value="e_ouvertes" disabled> <label for="e_ouvertes">enchères ouvertes</label></div>
+				<div><input type="radio" id="e_cours" name="ach" value="e_cours" disabled> <label for="e_cours">mes enchères en cours</label></div>
+				<div><input type="radio" id="e_remporte" name="ach" value="e_remporte" disabled> <label for="e_remporte">mes enchères remportées</label></div>
+			</div>
+			<div style="display:inline-block" class="position-absolute start-50">
+				<div><input type="radio" name="ventes" id="ventes" onchange="clicVentes()"> Mes ventes</div>
+				<div><input type="radio" id="v_cours" name="ven" value="v_cours" disabled> <label for="v_cours">ventes en cours</label></div>
+				<div><input type="radio" id="v_n_debute" name="ven" value="v_n_debute" disabled> <label for="v_n_debute">ventes non débutées</label></div>
+				<div><input type="radio" id="v_termine" name="ven" value="v_termine" disabled> <label for="v_termine">ventes terminées</label></div>
+				
+			</div>
+		</C:if><br>
+		
+		<input type="submit" value="Rechercher">
+		</form><br>
 		
 		<br><br>
 		
@@ -69,5 +83,35 @@
 			<%
 				}
 			%>
+			
+			<script type="text/javascript">
+				function clicAchats() {
+					if (document.getElementById("achats").checked==1)
+				    {
+				        document.getElementById("e_ouvertes").disabled=false;
+				        document.getElementById("e_ouvertes").checked=1;
+				        document.getElementById("e_cours").disabled=false;
+				        document.getElementById("e_remporte").disabled=false;
+				        document.getElementById("ventes").checked=0;
+				        document.getElementById("v_cours").disabled=true;
+				        document.getElementById("v_n_debute").disabled=true;
+				        document.getElementById("v_termine").disabled=true;
+				    }
+				}
+	
+				function clicVentes() {
+					if (document.getElementById("ventes").checked==1)
+				    {
+						document.getElementById("e_ouvertes").disabled=true;
+						document.getElementById("e_cours").disabled=true;
+						document.getElementById("e_remporte").disabled=true;
+				        document.getElementById("achats").checked=0;
+				        document.getElementById("v_cours").disabled=false;
+				        document.getElementById("v_cours").checked=1;
+				        document.getElementById("v_n_debute").disabled=false;
+				        document.getElementById("v_termine").disabled=false;
+				    }
+				}
+			</script>
 	</body>
 </html>

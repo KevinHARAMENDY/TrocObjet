@@ -5,35 +5,35 @@ import java.util.Date;
 
 public class Encheres implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private Utilisateurs noUtilisateur;
-	private ArticlesVendu noArticle;
+	private Utilisateurs utilisateur;
+	private ArticlesVendu article;
 	private Date date_enchere;
 	private int montant_enchere;
 	
 	public Encheres() {}
 
-	public Encheres(Utilisateurs noUtilisateur, ArticlesVendu noArticle, Date date_enchere, int montant_enchere) {
+	public Encheres(Utilisateurs utilisateur, ArticlesVendu article, Date date_enchere, int montant_enchere) {
 		super();
-		this.noUtilisateur = noUtilisateur;
-		this.noArticle = noArticle;
+		this.utilisateur = utilisateur;
+		this.article = article;
 		this.date_enchere = date_enchere;
 		this.montant_enchere = montant_enchere;
 	}
 
-	public Utilisateurs getNoUtilisateur() {
-		return noUtilisateur;
+	public Utilisateurs getUtilisateur() {
+		return utilisateur;
 	}
 
-	public void setNoUtilisateur(Utilisateurs noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
+	public void setUtilisateur(Utilisateurs utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 
-	public ArticlesVendu getNoArticle() {
-		return noArticle;
+	public ArticlesVendu getArticle() {
+		return article;
 	}
 
-	public void setNoArticle(ArticlesVendu noArticle) {
-		this.noArticle = noArticle;
+	public void setArticle(ArticlesVendu article) {
+		this.article = article;
 	}
 
 	public Date getDate_enchere() {
