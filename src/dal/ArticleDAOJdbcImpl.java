@@ -22,8 +22,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	private static final String SELECT_USER_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur=?";
 	private static final String SELECT_CATEG_ID = "SELECT * FROM CATEGORIES WHERE no_categorie=?;";
 	private static final String SELECT_ARTICLES_COURS = "SELECT * FROM ARTICLES_VENDUS WHERE date_fin_encheres > GETDATE();";
-	private static final String SELECT_VENTES_NON_DEBUT = "SELECT * FROM ARTICLES_VENDUS WHERE date_debut_encheres > GETDATE()";
-	private static final String SELECT_VENTES_FINIES = "SELECT * FROM ARTICLES_VENDUS WHERE date_fin_encheres < GETDATE();";
+	private static final String SELECT_VENTES_NON_DEBUT = "SELECT * FROM ARTICLES_VENDUS WHERE date_debut_encheres > GETDATE() AND no_utilisateur=?;";
+	private static final String SELECT_VENTES_FINIES = "SELECT * FROM ARTICLES_VENDUS WHERE date_fin_encheres < GETDATE() AND no_utilisateur=?;";
 	
 	@Override
 	public List<ArticlesVendu> selectAllArticles() {
