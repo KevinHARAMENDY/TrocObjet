@@ -11,8 +11,8 @@ public class UserManager {
 		this.userDAO=DAOFactory.getUserDAO();
 	}
 
-	public Utilisateurs afficheParPseudoMdp(String pseudo, String mdp) {
-		Utilisateurs user = this.userDAO.selectUserByPseudoMdp(pseudo,mdp);
+	public Utilisateurs afficheParEmailMdp(String mail, String mdp) {
+		Utilisateurs user = this.userDAO.selectUserByEmailMdp(mail,mdp);
 		return user;
 	}
 	

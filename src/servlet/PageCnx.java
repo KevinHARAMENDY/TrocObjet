@@ -20,14 +20,14 @@ public class PageCnx extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pseudo = request.getParameter("identifiant");
+		String email = request.getParameter("identifiant");
 		String mdp = request.getParameter("mdp");
 		
 		UserManager userMan = new UserManager();
-		Utilisateurs user = userMan.afficheParPseudoMdp(pseudo, mdp);
+		Utilisateurs user = userMan.afficheParEmailMdp(email, mdp);
 		
 		if (user == null) {
-			request.setAttribute("erreur", "Le pseudo ou le mot de passe est incorrect");
+			request.setAttribute("erreur", "Le mail ou le mot de passe est incorrect");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/pageCnx.jsp").forward(request, response);
 		} else {
 			HttpSession session = request.getSession();
