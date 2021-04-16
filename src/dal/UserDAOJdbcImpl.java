@@ -8,7 +8,7 @@ import bo.Utilisateurs;
 
 public class UserDAOJdbcImpl implements UserDAO {
 	
-	private static final String SELECT_EMAIL_MDP="SELECT * FROM UTILISATEURS WHERE email=? AND mot_de_passe=?;";
+	private static final String SELECT_EMAIL_MDP="SELECT * FROM UTILISATEURS WHERE email=? OR pseudo=? AND mot_de_passe=?;";
 	private static final String INSERT_USER="INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur) VALUES (?,?,?,?,?,?,?,?,?,0,0);";
 	private static final String SELECT_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo=?;";
 	private static final String DELETE_USER = "delete from UTILISATEURS WHERE pseudo=?;";
@@ -22,7 +22,8 @@ public class UserDAOJdbcImpl implements UserDAO {
 		{
 			PreparedStatement pstmt = cnx.prepareStatement(SELECT_EMAIL_MDP);
 			pstmt.setString(1, email);
-			pstmt.setString(2, mdp);
+			pstmt.setString(2, email);
+			pstmt.setString(3, mdp);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next())
 			{
